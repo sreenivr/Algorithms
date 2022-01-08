@@ -10,16 +10,17 @@ def twoSum(nums, target):
     for i, num in enumerate(nums):
         t = target - num
         if t in htbl.keys():
-            print ("Found the pair. Index = ", htbl[t], i)
             return [htbl[t], i]
         else:
             htbl[num] = i
             
-    print ("Something is wrong. Couldn't find the pair")
-    #print(htbl)
+    return None
         
-
-nums = [2, 10, 7, 11, 15]
-target = 26
-
-twoSum(nums, target)
+if __name__ == '__main__':
+    nums = [2, 10, 7, 11, 15]
+    target = 26
+    result = twoSum(nums, target)
+    if result is not None:
+        print("Index of the items = {0}, {1}".format(result[0], result[1]))
+    else:
+        print("Couldn't find the solution")        
